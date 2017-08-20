@@ -1,6 +1,9 @@
 from django.conf.urls import url
-from . import views
+from .views import *
 
 urlpatterns = [
-    url(r'^$', views.view, name='view'),
+	url(r'^$', home, name='home'),
+    url(r'^NuevoRepuesto/$', NuevoRepuesto, name="nuevo-repuesto"),
+    url(r'^dato-respuesto/$', NuevoDato, name="dato-repuesto"),
+    url(r'^verRepuestos/$', verRepuestos, name="verRepuestos"),
 ]

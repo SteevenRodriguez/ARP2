@@ -4,12 +4,12 @@ from django.db import models
 
 class Repuesto(models.Model):
     #atributos
-    nombre = models.CharField(max_length=50)
-    foto = models.ImageField(upload_to = 'pic_folder/', null= True)
-    descripcion= models.TextField(max_length=50)
+    nombre = models.CharField(max_length=50, blank=True)
+    foto = models.ImageField(upload_to = 'pic_folder/', blank=True)
+    descripcion= models.TextField(max_length=10, blank=True)
     cantidad= models.IntegerField(default=0)
     def __unicode__(self):
-        return  self.nombre
+        return  unicode(self.nombre)
     class Meta:
         verbose_name = "Repuesto"
         verbose_name_plural = "Repuestos"
@@ -19,6 +19,8 @@ class Datos(models.Model):
     descripcion1= models.TextField(max_length=50)
     descripcion2=models.TextField(max_length=50)
     descripcion3= models.TextField(max_length=50)
+    def __unicode__(self):
+        return  unicode(self.descripcion1)
    
     class Meta:
         verbose_name= "Datos"
