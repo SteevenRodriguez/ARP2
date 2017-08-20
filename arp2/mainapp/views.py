@@ -11,7 +11,7 @@ def NuevoRepuesto(request):
 		print(form.errors)
 		if form.is_valid():
 			form.save()
-			return redirect('dato-repuesto')
+			return redirect('verRepuestos')
 	elif request.method == "GET":
 		form = RepuestoForm()
 	return render(request, 'baseform.html', {'objeto': 'Repuesto', 'form': form})

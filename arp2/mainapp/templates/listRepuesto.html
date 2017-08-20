@@ -9,7 +9,7 @@
   
   <form method="post">
     {% csrf_token %}
-    Ingrese el numero de cedula:
+    Ingrese Repuesto:
     <input type="text" id="cedula">
     <button class="btn btn-primary" type="submit" style="margin-top: 0;">Buscar</button>
   </form>
@@ -18,7 +18,7 @@
     {% for repuesto in repuesto %}
     <div class="panel-heading">
       <h4 class='panel-title'>
-        Cedula: {{ cliente.cedula }} - Nombre: {{ cliente.nombre }} - Apellido: {{ cliente.apellido }}
+        Nombre: {{ repuesto.nombre }} - Descripcion1: {{ repuesto.descripcion1 }} - Descripcion2: {{ repuesto.descripcion2 }} - Descripcion3: {{ repuesto.descripcion3 }} - Cantidad: {{ repuesto.cantidad }}
       </h4>
     </div>
     {% empty %}
