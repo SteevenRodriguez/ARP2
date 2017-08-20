@@ -16,18 +16,6 @@ def NuevoRepuesto(request):
 		form = RepuestoForm()
 	return render(request, 'baseform.html', {'objeto': 'Repuesto', 'form': form})
 
-	# Create your views here.
-def NuevoDato(request):
-	if request.method == "POST":
-		form = DatosForm(request.POST)
-		print(form.errors)
-		if form.is_valid():
-			form.save()
-			return render(request, 'baseform.html', {'objeto': 'Datos', 'form': form})
-	elif request.method == "GET":
-		form = DatosForm()
-	return render(request, 'baseform.html', {'objeto': 'Datos', 'form': form})
-
 
 def verRepuestos(request):
 	repuesto = Repuesto.objects.all()
