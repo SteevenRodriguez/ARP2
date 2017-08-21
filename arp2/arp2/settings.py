@@ -118,4 +118,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+
+MEDIA_URL='/home/lula/BaseDatos/ARP2/arp2/'
+STATIC_URL = '/home/lula/BaseDatos/ARP2/arp2/pic_folder/'
+STATICFILES_DIRS = ('/home/lula/BaseDatos/ARP2/arp2/pic_folder/',)
