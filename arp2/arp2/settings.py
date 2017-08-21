@@ -25,7 +25,7 @@ SECRET_KEY = '&hp34!7bzo+6ee56mxd&$1fw^pg%$s_-$a$u5#90-fu+%^f3r9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.104','127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -119,6 +119,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 
-MEDIA_URL='/home/lula/BaseDatos/ARP2/arp2/'
-STATIC_URL = '/home/lula/BaseDatos/ARP2/arp2/pic_folder/'
-STATICFILES_DIRS = ('/home/lula/BaseDatos/ARP2/arp2/pic_folder/',)
+
+#where Django stores uploaded files
+# esta es la ruta de todos los media
+# ej: localhost:8000/pic_folder/
+MEDIA_URL = '/pic_folder/'
+#esta es la ruta donde se va a crear
+#proyecto/app/pic_folder
+MEDIA_ROOT = os.path.join(BASE_DIR, 'pic_folder/')
+STATIC_URL = '/static/'
+#STATICFILES_DIRS = ('/home/steeven/Desktop/ARP2/arp2/pic_folder/',)

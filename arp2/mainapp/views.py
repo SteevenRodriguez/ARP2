@@ -7,11 +7,12 @@ from .models import *
 # Create your views here.
 def NuevoRepuesto(request):
 	if request.method == "POST":
-		form = RepuestoForm(request.POST)
+		print(request.FILES)
+		form = RepuestoForm(request.POST, request.FILES)
 		print(form.errors)
 		if form.is_valid():
 			form.save()
-			return redirect('verRepuestos')
+			return redirect('home')
 	elif request.method == "GET":
 		form = RepuestoForm()
 	return render(request, 'baseform.html', {'objeto': 'Repuesto', 'form': form})

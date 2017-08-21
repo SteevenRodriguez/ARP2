@@ -6,7 +6,7 @@
 
   <h2>Ingreso de {{ objeto }}</h2>
 
-  <form method="POST">
+  <form method="POST" enctype="multipart/form-data">
   	<div id="formulario">
     	{% csrf_token %}
     	{{ form.as_p }}
