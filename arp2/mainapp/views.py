@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 
 from .forms import *
 from .models import *
@@ -26,3 +26,20 @@ def verRepuestos(request):
 
 def home(request):
 	return render(request,'home.html')
+
+def Repuesto_editar(request, item):
+    repuesto = get_object_or_404(Repuesto, pk=item)
+    form = RepuestoForm(request.POST or None, instance=repuesto)
+    if form.is_valid():
+        form.save()
+        return redirect('verRepuestos')
+    return render(request, 'baseform.html', {'form':form, 'tipo_objeto':"repuesto"})
+   
+
+def Repuesto_eliminar(request, item):
+    repuesto = get_object_or_404(Repuesto, pk=item)
+    repuestos = Repuesto.objects.all()
+    if request.method=='POST':
+        repuesto.delete()
+        return redirect('verRepuestos')
+    return render(request,'listRepuesto.html',{'object_list': repuestos,'object':repuesto, 'eliminar': 'True','tipo_objeto':"repuesto"})

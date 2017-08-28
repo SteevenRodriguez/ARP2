@@ -2,6 +2,14 @@
 
 {% block content2 %}
 
+<datalist class='col-md-6' id="repuestos">
+  	{% for p in productos %}
+    	<option value="{{p.nombre}}:{{p.descripcion1}}:{{p.descripcion2}}:{{p.descripcion3}}">{{p.nombre}}:{{p.descripcion1}}:{{p.descripcion2}}:{{p.descripcion3}}</option>
+    {% empty %}
+    	<option value="0">No hay productos</option>
+	{% endfor %}
+</datalist>
+
 <main class="container" role='main'>
 
   <h2>Ingreso de {{ objeto }}</h2>
