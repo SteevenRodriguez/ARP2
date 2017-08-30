@@ -12,6 +12,9 @@ class Repuesto(models.Model):
     
     def __unicode__(self):
         return  unicode(self.nombre)
+    def delete(self, *args, **kwargs):
+        self.foto.delete()
+        super(Repuesto, self).delete(*args, **kwargs)
     class Meta:
         verbose_name = "Repuesto"
         verbose_name_plural = "Repuestos"

@@ -29,17 +29,21 @@ def home(request):
 
 def Repuesto_editar(request, item):
     repuesto = get_object_or_404(Repuesto, pk=item)
-    form = RepuestoForm(request.POST or None, instance=repuesto)
-    if form.is_valid():
-        form.save()
-        return redirect('verRepuestos')
+    if request.method == "GET":
+    	form = RepuestoForm(instance=repuesto)
+    else:
+	    form = RepuestoForm(request.POST, request.FILES, instance=repuesto)
+	    if form.is_valid():
+	        form.save()
+	        return redirect('verRepuestos')
     return render(request, 'baseform.html', {'form':form, 'tipo_objeto':"repuesto"})
    
 
 def Repuesto_eliminar(request, item):
     repuesto = get_object_or_404(Repuesto, pk=item)
     repuestos = Repuesto.objects.all()
-    if request.method=='POST':
+    if request.method=='GET':
+    	print(repuesto)
         repuesto.delete()
         return redirect('verRepuestos')
     return render(request,'listRepuesto.html',{'object_list': repuestos,'object':repuesto, 'eliminar': 'True','tipo_objeto':"repuesto"})
